@@ -1,7 +1,5 @@
 package com.develogical;
 
-import com.develogical.web.IndexPage;
-import com.develogical.web.SearchResultsPage;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -11,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+// http://192.168.40.30:3000/players/881280c0
 
 public class WebServer extends HttpServlet {
 
@@ -34,12 +35,21 @@ public class WebServer extends HttpServlet {
      * Process a given query, producing a text string as a result
      */
     public String process(String query) {
-        if (false) { // you should change this =)
+        if (query == null || query == "") { // you should change this =)
             // How do you determine how to handle a given query?
             return "";
         } else {
-            // A sensible default
-            return "Unknown";
+            String str = "what is your name";
+            String regex = "what is your name";
+
+            Matcher matcher = Pattern.compile(regex).matcher(query);
+
+            if (matcher.matches()) {
+                return "severe_summer";
+            } else {
+                // A sensible default
+                return "Unknown";
+            }
         }
     }
 

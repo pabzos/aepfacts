@@ -12,4 +12,12 @@ public class WebServerTest {
     public void testProcessUnknown() throws Exception {
         assertEquals("Unknown", server.process("What is my favourite colour?"));
     }
+
+    /**
+     * Ensure that a 'bad' request gets "Unknown" as a response.
+     */
+    @org.junit.Test
+    public void testProcessMyName() throws Exception {
+        assertEquals("severe_summer", server.process("what is your name"));
+    }
 }
