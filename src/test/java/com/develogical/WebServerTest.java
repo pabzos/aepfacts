@@ -34,6 +34,14 @@ public class WebServerTest {
      * Ensure that a 'bad' request gets "Unknown" as a response.
      */
     @org.junit.Test
+    public void testProcessPlusPlus() throws Exception {
+        assertEquals("23", server.process("8a9a2c70: what is 8 plus 14 plus 1"));
+    }
+
+    /**
+     * Ensure that a 'bad' request gets "Unknown" as a response.
+     */
+    @org.junit.Test
     public void testProcessMinus() throws Exception {
         assertEquals("6", server.process("8a9a2c70: what is 8 minus 2"));
     }

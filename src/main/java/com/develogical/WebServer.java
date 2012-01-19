@@ -51,10 +51,16 @@ public class WebServer extends HttpServlet {
 
         if(query.contains("plus")) {
             String[] strings = query.split(" ");
-            Integer op1 = Integer.parseInt(strings[3]);
-            Integer op2 = Integer.parseInt(strings[5]);
-            Integer res = op1+op2;
-            return res.toString();
+            if(strings.length == 6) {
+                Integer op1 = Integer.parseInt(strings[3]);
+                Integer op2 = Integer.parseInt(strings[5]);
+                Integer res = op1+op2;
+                return res.toString();
+            }
+            else
+            {
+                
+            }
         }
 
         if(query.contains("minus")) {
