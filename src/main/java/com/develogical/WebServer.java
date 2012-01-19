@@ -48,6 +48,13 @@ public class WebServer extends HttpServlet {
             return getMax(numbers).toString();
         }
 
+        if(query.contains("plus")) {
+            String[] strings = query.split(" ");
+            Integer op1 = Integer.parseInt(strings[3]);
+            Integer op2 = Integer.parseInt(strings[5]);
+            Integer res = op1+op2;
+            return res.toString();
+        }
 
 
         System.out.println("Returning: " + result);
