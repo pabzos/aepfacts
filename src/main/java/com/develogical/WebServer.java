@@ -89,6 +89,20 @@ public class WebServer extends HttpServlet {
             return primes;
         }
 
+        if(query.contains("power")) {
+            String[] strings = query.split(" ");
+            Integer power = Integer.parseInt(strings[8]);
+            Integer op = Integer.parseInt(strings[3]);
+            
+            int powered = 1;
+            for(int i=0; i < power; i++) {
+                powered = powered * op;
+            }
+            
+            return new Integer(powered).toString();
+            
+        }
+
 
         System.out.println("Returning: " + result);
         return result;

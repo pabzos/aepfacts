@@ -61,4 +61,14 @@ public class WebServerTest {
     public void testProcessPrim() throws Exception {
         assertEquals("1, 3, 5, 7", server.process("22a41050: which of the following numbers are primes: 1, 3, 5, 6, 7"));
     }
+
+    /**
+     * Ensure that a 'bad' request gets "Unknown" as a response.
+     */
+    @org.junit.Test
+    public void testProcessPower() throws Exception {
+        assertEquals("4", server.process("f8cde210: what is 2 to the power of 2"));
+    }
+
+
 }
