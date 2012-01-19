@@ -57,6 +57,14 @@ public class WebServer extends HttpServlet {
             return res.toString();
         }
 
+        if(query.contains("minus")) {
+            String[] strings = query.split(" ");
+            Integer op1 = Integer.parseInt(strings[3]);
+            Integer op2 = Integer.parseInt(strings[5]);
+            Integer res = op1-op2;
+            return res.toString();
+        }
+
         if(query.contains("multiplied")) {
             String[] strings = query.split(" ");
             Integer op1 = Integer.parseInt(strings[3]);
