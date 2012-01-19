@@ -33,11 +33,13 @@ public class WebServer extends HttpServlet {
      * Process a given query, producing a text string as a result
      */
     public String process(String query) {
-        String result = "";
-        if (query == null || query == "") { // you should change this =)
-            // How do you determine how to handle a given query?
-            result = "";
-        } else {
+        String result = "Unknown";
+
+        String[] strings = query.split(" ");
+        System.out.println("Length: " + strings.length);
+
+        if (strings.length == 4 && strings[3].equals(("name"))) {
+            System.out.println(" strings[3]: " + strings[3]);
             result = "severe_summer";
         }
         
