@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 // http://192.168.40.30:3000/players/881280c0
 
@@ -35,23 +33,16 @@ public class WebServer extends HttpServlet {
      * Process a given query, producing a text string as a result
      */
     public String process(String query) {
+        String result = "";
         if (query == null || query == "") { // you should change this =)
             // How do you determine how to handle a given query?
-            return "";
+            result = "";
         } else {
-            Matcher nameMatcher = Pattern.compile("what is your name").matcher(query);
-            if (nameMatcher.matches()) {
-                return "severe_summer";
-
-            } else {
-                return "Unknown";
-            }
-//                return "severe_summer";
-//            } else {
-//                // A sensible default
-//                return "Unknown";
-//            }
+            result = "severe_summer";
         }
+        
+        System.out.println("Returning: " + result);
+        return result;
     }
 
     public static void main(String[] args) throws Exception {
