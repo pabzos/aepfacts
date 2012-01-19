@@ -58,6 +58,14 @@ public class WebServerTest {
      * Ensure that a 'bad' request gets "Unknown" as a response.
      */
     @org.junit.Test
+    public void testProcessMultiplyPlus() throws Exception {
+        assertEquals("39", server.process("b4a119b0: what is 19 multiplied by 2 plus 1"));
+    }
+
+    /**
+     * Ensure that a 'bad' request gets "Unknown" as a response.
+     */
+    @org.junit.Test
     public void testProcessPrim() throws Exception {
         assertEquals("1, 3, 5, 7", server.process("22a41050: which of the following numbers are primes: 1, 3, 5, 6, 7"));
     }

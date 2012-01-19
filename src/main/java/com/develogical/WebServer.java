@@ -49,7 +49,7 @@ public class WebServer extends HttpServlet {
             return getMax(numbers).toString();
         }
 
-        if(query.contains("plus")) {
+        if(query.contains("plus") && query.contains("multiplied") == false) {
             String[] strings = query.split(" ");
             if(strings.length == 6) {
                 Integer op1 = Integer.parseInt(strings[3]);
@@ -80,6 +80,13 @@ public class WebServer extends HttpServlet {
                 Integer op1 = Integer.parseInt(strings[3]);
                 Integer op2 = Integer.parseInt(strings[6]);
                 Integer res = op1*op2;
+                return res.toString();
+            }
+            else {
+                Integer op1 = Integer.parseInt(strings[3]);
+                Integer op2 = Integer.parseInt(strings[6]);
+                Integer op3 = Integer.parseInt(strings[8]);
+                Integer res = op1*op2+op3;
                 return res.toString();
             }
         }
