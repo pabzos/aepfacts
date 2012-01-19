@@ -35,6 +35,10 @@ public class WebServer extends HttpServlet {
     public String process(String query) {
         String result = "Unknown";
 
+        if (query == null) {
+            return result;
+        }
+        
         String[] strings = query.split(" ");
         System.out.println("Length: " + strings.length);
 
