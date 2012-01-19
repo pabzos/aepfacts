@@ -39,31 +39,19 @@ public class WebServer extends HttpServlet {
             return result;
         }
 
-//        String[] strings = query.split(" ");
-//        System.out.println("Length: " + strings.length);
-//
-//        if (strings.length == 4 && strings[3].equals(("name"))) {
-//            System.out.println(" strings[3]: " + strings[3]);
-//            result = "severe_summer";
-//        }
-//
-//        System.out.println("Returning: " + result);
-//        return result;
+        if(query.contains("which of the following numbers is the largest")){
+            String[] strings = query.split(":");
+            System.out.println("Length: " + strings.length);
 
-        String[] strings = query.split(":");
-        System.out.println("Length: " + strings.length);
+            String[] numbers = strings[2].replaceAll(" ", "").split(",");
 
-        String[] numbers = strings[2].replaceAll(" ", "").split(",");
-        
-        return getMax(numbers).toString();
-        
-//        if (strings.length == 4 && strings[3].equals(("name"))) {
-//            System.out.println(" strings[3]: " + strings[3]);
-//            result = "severe_summer";
-//        }
-//
-//        System.out.println("Returning: " + result);
-//        return result;
+            return getMax(numbers).toString();
+        }
+
+
+
+        System.out.println("Returning: " + result);
+        return result;
     }
 
     public static void main(String[] args) throws Exception {
