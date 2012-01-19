@@ -57,9 +57,12 @@ public class WebServer extends HttpServlet {
                 Integer res = op1+op2;
                 return res.toString();
             }
-            else
-            {
-                
+            else {
+                Integer op1 = Integer.parseInt(strings[3]);
+                Integer op2 = Integer.parseInt(strings[5]);
+                Integer op3 = Integer.parseInt(strings[7]);
+                Integer res = op1+op2+op3;
+                return res.toString();
             }
         }
 
