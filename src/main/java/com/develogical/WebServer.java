@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Vector;
 
 // http://192.168.40.30:3000/players/d2936180
 
@@ -64,9 +65,48 @@ public class WebServer extends HttpServlet {
             return res.toString();
         }
 
+        if(query.contains("primes")) {
+            String[] strings = query.split("primes:");
+            String[] numbers = strings[1].replaceAll(" ", "").split(",");
+            String primes = getPrimes(numbers);
+            return primes;
+        }
+
 
         System.out.println("Returning: " + result);
         return result;
+    }
+
+    private String getPrimes(String[] numbers) {
+
+        Vector<Integer> primes = new Vector<Integer>();
+
+        for (int i = 0; i < numbers.length; i++) {
+            int n = Integer.parseInt(numbers[i]);
+
+            boolean notPrime = false;
+            for (int j = 2; j < n; j++) {
+                
+                if (n % j == 0) {
+                    notPrime = true;
+                    break;
+                }
+            }
+            if(notPrime == false) {
+                primes.add(new Integer(n));
+            }
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for(int i=0; i<primes.size(); i++) {
+            sb.append(primes.get(i));
+            sb.append(", ");
+        }
+        
+        String result = sb.toString();
+
+        return result.substring(0, result.length() - 2);
     }
 
     public static void main(String[] args) throws Exception {
