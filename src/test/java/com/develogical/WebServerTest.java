@@ -78,5 +78,14 @@ public class WebServerTest {
         assertEquals("4", server.process("f8cde210: what is 2 to the power of 2"));
     }
 
+    /**
+     * Ensure that a 'bad' request gets "Unknown" as a response.
+     */
+    @org.junit.Test
+    public void testProcessAnagram() throws Exception {
+        assertEquals("inlets", server.process("44f5bd90: which of the following is an anagram of \"listen\": banana, google, enlists, inlets"));
+    }
+
+
 
 }

@@ -111,6 +111,42 @@ public class WebServer extends HttpServlet {
             return new Integer(powered).toString();
             
         }
+        
+        if(query.contains("anagram")) {
+            String[] strings = query.split(":");
+            String reminder = strings[1];
+            String[] words = strings[2].replace(" ", "").split(",");
+            String[] reminder2 = reminder.split(" ");
+            String word = reminder2[reminder2.length - 1];
+            word = word.replace("\"", "");
+            StringBuilder sb = new StringBuilder();
+            
+            for(int i=0; i < words.length; i++) {
+                String candidate = words[i];
+                boolean isAnagram = true;
+                
+                for(int j=0; j<word.length(); j++) {
+                    if(!candidate.contains(String.valueOf(word.charAt(j)))) {
+                        isAnagram = false;
+                        break;
+                    }
+                }
+
+                if(isAnagram){
+                    sb.append(candidate);
+                    sb.append(", ");
+                }
+            }
+
+            String anagramString = sb.toString();
+            
+            if(anagramString != null && anagramString != "") {
+                return anagramString.substring(0, anagramString.length() - 2);
+            }
+            else {
+                return "";
+            }
+        }
 
 
         System.out.println("Returning: " + result);
